@@ -10,3 +10,7 @@ cd redux-todo
 npm install
 npm start
 ```
+
+## Screenshots
+
+<img src="./screenshot.png" />
