@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {addTodo, deleteTodo, toggleTodo, getTodos} from './actions';
+import {addTodo, deleteTodo, toggleTodo} from './actions';
 import TodoList from './components/TodoList';
 import {bindActionCreators} from 'redux';
 

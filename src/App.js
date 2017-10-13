@@ -12,7 +12,8 @@ import FlatButton from 'material-ui/FlatButton';
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import {Col} from 'react-bootstrap';
-
+import theme from './theme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const store = createStore(reducer);
 
@@ -23,7 +24,8 @@ class App extends Component {
 
         this.state = {
             items: [],
-            user: null
+            user: null,
+            selectedIndex: 0,
         };
 
         this.login = this.login.bind(this);
@@ -83,21 +85,19 @@ class App extends Component {
         };
 
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
                 <div className="App">
 
                     <AppBar
                         title="Todo List"
                         iconElementLeft={
                             this.state.user ?
-
                                 <Avatar
                                     size={50}
                                     src={this.state.user.photoURL}>
                                 </Avatar>
                                 :
                                 null
-
                         }
                         iconElementRight={
                             this.state.user ?
@@ -107,13 +107,12 @@ class App extends Component {
                         }
                     />
 
-
                     {this.state.user ?
+
                         <Provider store={store}>
                             <TodoListContainer/>
                         </Provider>
                         :
-
                         <Col md={4} mdOffset={4}>
                             <Paper style={paperStyle} zDepth={1}>
                                 <div className='wrapper'>

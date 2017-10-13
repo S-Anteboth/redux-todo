@@ -1,5 +1,3 @@
-import {List} from 'immutable';
-
 // hack for generating passable unique ids
 const uid = () => Math.random().toString(34).slice(2);
 
